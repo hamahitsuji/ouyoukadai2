@@ -1,3 +1,14 @@
+<div id="error_explaination">
+	<% if @book.errors.any? %>
+		<h3><%= @book.errors.count %>error occurrence</h3>
+		<ul>
+			<% @book.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>
+
 <div class="row">
 	<div class="col-xs-3">
 
@@ -6,7 +17,7 @@
 		<!--メモ　右側の指定に注意。そこを間違えるとエラーが発生して表示されない -->
 
 		<h2>New book</h2>
-		<%= render 'books/newform', book: @book %>
+		<%= render 'newform', book: @book %>
 
 	</div>
 
@@ -39,7 +50,5 @@
 		</table>
 
 		<!--books一覧 -->
-
-
 	</div>
 </div>
